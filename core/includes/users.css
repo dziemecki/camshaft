@@ -1,0 +1,148 @@
+#tabs {
+	font-size: 62.5%;
+	width: 50%;
+    display: block;
+    margin: auto;	
+}  
+div#dialog-confirm {
+	height: 65px !important;
+	font-size: 1em;
+} 
+  span.ui-button-text{
+	  font-size: 1em;
+  }
+div.ui-dialog{
+	width: 440px;
+	visibility: hidden;
+position: absolute;		
+  font-size: 75%;
+  display:block;
+  margin:auto;
+	top: 50%;
+left: 0;
+right: 0;	
+}
+div.ui-widget{
+  display:inline-block;
+  bottom: auto;
+}
+
+#register-form {
+    background: url("form-fieldset.gif") repeat-x scroll left bottom #F8FDEF;
+    border: 1px solid #DFDCDC;
+    border-radius: 15px 15px 15px 15px;
+    display: inline-block;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-top: 10px;
+    padding: 25px 50px 10px;
+    width: 350px;
+}
+
+#register-form .fieldgroup {
+    background: url("form-divider.gif") repeat-x scroll left top transparent;
+    display: inline-block;
+    padding: 8px 10px;
+    width: 340px;
+}
+
+#register-form .fieldgroup label {
+    float: right;
+    padding: 15px 0 0;
+    text-align: right;
+    width: 110px;
+}
+
+#register-form .fieldgroup input, #register-form .fieldgroup textarea, #register-form .fieldgroup select {
+    float: left;
+    margin: 10px 0;
+    height: 25px;
+}
+
+#register-form .submit {
+    padding: 10px;
+    width: 220px;
+    height: 40px !important;
+}
+
+#register-form .fieldgroup label.error {
+    color: #FB3A3A;
+    display: inline-block;
+    margin: 4px 0 5px 125px;
+    padding: 0;
+    text-align: left;
+    width: 220px;
+}
+
+form.cmxform fieldset{
+	margin-bottom:10px;
+	}
+	
+form.cmxform legend{
+	padding:0 2px;
+	font-weight:bold;
+	_margin:0 -7px;
+	}
+	
+form.cmxform label{
+	display:inline-block;
+	line-height:1.8;
+	vertical-align:top;
+	cursor:hand;
+	}
+	
+form.cmxform fieldset p{
+	list-style:none;
+	padding:5px;
+	margin:0;
+	}
+		
+form.cmxform fieldset fieldset{
+	border:none;
+	margin:3px 0 0;
+	}
+	
+form.cmxform fieldset fieldset legend{
+	padding:0 0 5px;
+	font-weight:normal;
+	}
+	
+form.cmxform fieldset fieldset label{
+	display:block;
+	width:auto;
+	}
+	
+form.cmxform label{
+	width:200px;
+	}
+	
+form.cmxform fieldset fieldset label{
+	margin-left:103px;
+	}
+	
+.form-description div{
+  float: left;  
+  padding-left: 5px;
+}
+.form-description span{
+  float: left;  
+}		
+form.cmxform label.error{
+	margin-left:103px;
+	width:250px;
+	float: left;
+	color: red;
+	font-size: 62.5%;
+	}
+form.cmxform input.submit{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+	}
+input.user_form{
+  width: 100x; 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}	

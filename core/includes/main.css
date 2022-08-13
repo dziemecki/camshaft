@@ -1,0 +1,176 @@
+body {
+	width: 100%;
+}  
+a:link {
+    text-decoration: none;
+	color: black;
+}
+a.jlink{
+	cursor: pointer;
+}
+a:visited {
+	color: black;	
+}
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+input[type="submit"]{
+	border-radius: 7px;
+    background-color: white;
+    color: black;
+    border: 2px solid #cccccc;
+	}
+	input[type="button"]{
+	border-radius: 7px;
+    background-color: white;
+    color: black;
+    border: 2px solid #cccccc;
+	}
+input[type="submit"]:hover{	
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+}
+input[type="button"]:hover{	
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+}
+#page{
+  width: 1020px;
+  display: table;	
+  margin: auto; 
+}
+#banner {
+  margin-top: 0;
+}
+#marquee{
+  position: relative;
+  clear:both;
+  height: 135px;
+  line-height: 135px;
+  background-color: #eeeeee;
+}
+#logo{
+  position: absolute;
+  left: 25px;
+  top: 15px;
+}
+#motto{
+  font-size: 150%;
+  font-weight: bold;
+  text-align: center;
+}
+#main{
+  background-color: #c0c0c0;  
+}
+#menu {
+  float: left;
+  width: 25.0%;
+  background-color: #c0c0c0;
+  display: table-cell; 
+}
+#body {
+  float: right;
+  width: 75.0%;
+  background-color: #dddddd;
+  display: table-cell;
+}
+#footer {
+  background-color: #888888;
+  text-align: center;  
+  clear: both;
+  margin-bottom: 0;
+  color: #bbbbbb;
+}
+.row{
+  display: table-row;	
+}
+.box{
+  display: table-cell;	
+}
+.form-required{
+  color: red;
+}
+.text-center{
+  text-align: center;	
+}
+.element-center{
+  width: 100px; 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;	
+}
+.center {
+  display: table;
+  margin: 0 auto;
+}
+.remove {
+  display: none;
+}
+.textLink:hover{
+  text-decoration: underline;	
+  cursor: pointer; 
+  cursor: hand;
+}
+div.title{
+	font-size: 125%;
+	font-weight: bold;
+	margin: auto;
+    width: 50%;
+	text-align: center;
+	padding-bottom: 10px;	
+}
+div.message {
+  background-color: yellow;
+  text-align: center;
+  font-weight: bold;
+  font-size: 150%;
+  margin-top: 0;
+}
+div.instructions {
+  width: 75%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-style: italic;
+}
+
+div.body_form {
+  width: 450px; 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+a.breadcrumbs{
+	color: green;
+	font-size: 75%;
+}
+.form-description{
+  font-style: italic;
+  font-size: 75%; 
+}
+div.form-element{
+  padding-top: 5px;
+  padding-bottom: 10px;  
+}
+div.form-label{
+  font-weight: bold;		
+}
+table.content{
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+td.menu{
+  font-weight: bold;
+}
+td.content{
+  font-weight: bold;
+  width: 100%
+}
+input.station{
+  font-size: 24px;
+  width: 200px;
+}
+
