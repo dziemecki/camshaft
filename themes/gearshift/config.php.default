@@ -1,0 +1,29 @@
+<?PHP
+/* The Gearshift scheme is intended to be similar to the core theme but a little more easily configured
+As such, it will consist primarily over overrides of the the main theme, along with editable variables
+to personalize the theme. */
+// Key colors
+$gear_shift_primary = '#888888'; // primary color of the site
+$gear_shift_secondary = '#000000'; // secondary/text
+$gear_shift_terciary = '#eeeeee'; // contrast to primary
+$gear_shift_quaternary = '#bbbbbb'; //contrast to secondary
+// Sectional values
+$gear_shift_text = $gear_shift_secondary;
+$gear_shift_infotext = '#2d8659';
+$gear_shift_mainbg = $gear_shift_terciary;
+$gear_shift_maintxt = $gear_shift_secondary;
+$gear_shift_bannerbg = $gear_shift_primary;
+$gear_shift_bannertxt = $gear_shift_text;
+$gear_shift_footerbg = $gear_shift_primary;
+$gear_shift_footertxt = $gear_shift_terciary;
+$gear_shift_menubg = '#c0c0c0';
+$gear_shift_menutxt = $gear_shift_terciary ;
+$gear_shift_alertbg = '#ff9933';
+$gear_shift_alerttxt = $gear_shift_secondary;
+// Graphics
+$gear_shift_icon = "/url/themes-gearshift/gearshift.ico";
+$gear_shift_logo = "/url/themes-gearshift/gearshift.sm.png";
+// fonts
+$gear_shift_main_font_fam = "font-family: 'Trebuchet MS', 'Helvetica', 'Arial',  'Verdana', 'sans-serif'";
+$gear_shift_title_font_fam = "font-family: 'Times New Roman', Times, serif";
+?>
