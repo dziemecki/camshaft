@@ -51,7 +51,7 @@ $_TIME_STAMP = time();
 $_persistant_duration = (_PERSISTENT_LIFE * 60);
 
 if(_PERSISTENT_METHOD == 1){
-    $bolTimeoutException = false;	
+    $bolTimeoutException = false;
 	if(isset($_COOKIE['token'])) {
 		$bolTimeoutException = confirmAccess(_TIME_OUT_EXCEPTIONS);		
 	}	
@@ -62,7 +62,7 @@ if(_PERSISTENT_METHOD == 1){
 if(_PERSISTENT_METHOD == 2){ 
 	session_start();
 	$bolTimeoutException = false;
-	if(isset($_SESSION['token'])) {
+	if(isset($_SESSION['token'])) {		
 		$bolTimeoutException = confirmAccess(_TIME_OUT_EXCEPTIONS);		
 	}	
 	// Check if the timeout field exists.
@@ -176,7 +176,7 @@ function getMenu(){
   //Set the query
   $o_database->query('SELECT dname, maddr, mroles FROM menu WHERE active = "1" ORDER BY weight, dname');
   //Run the query and save it to the $rows array
-  $mrows = $o_database->resultset(); 
+  $mrows = $o_database->resultset();
   //Release the object
   unset($o_database);
   $tokendecode =  getPersistent("token");
@@ -208,7 +208,7 @@ function getMenu(){
 		}
 	  }
 	  if(confirmAccess(array('terminal'))){
-		  
+	
 	  }
   }
   return $menu;
@@ -242,15 +242,14 @@ function confirmAccess($req_roles){
   $o_database = new db();
   $o_database->query('SELECT rid FROM roles WHERE rname = :rname');
   $laccess = array();
-  if(_PERSISTENT_METHOD == 1){
-	$laccess = $tokendecode->laccess;
-  }
-  if(_PERSISTENT_METHOD == 2){
-	$laccess = '';
-	if(is_array($tokendecode)){
-		$laccess = $tokendecode['laccess'];
-	}	
-  }
+  if($tokendecode){
+	  if(_PERSISTENT_METHOD == 1){
+		$laccess = $tokendecode->laccess;
+	  }
+	  if(_PERSISTENT_METHOD == 2){
+		  $laccess = $tokendecode['laccess'];  
+	  }
+  }	  
   $allow = false;
   foreach($req_roles as $role){
 	// if not an int, look up the rid and convert
@@ -286,18 +285,17 @@ function convertDirs($dir_str){
 function renderPhpToString($file, $vars=null)
 {
     if (is_array($vars) && !empty($vars)) {
-        extract($vars);
+       extract($vars);
     }
     ob_start();
     include $file;
     return ob_get_clean();
 }
 
-
 // replaces key fields from an array in long string
 function replaceKeyStrings($str, $arr=null){
 	foreach ($arr as $key=>$val){
-		$str = str_replace("<!".$key."!>",$val,$str);
+		$str = str_replace("<!".$key."!>",$val ?? '',$str);
 	}
 	return $str;
 }
@@ -388,6 +386,10 @@ function cmsfDecode($string){
 	);
 	$rtnstring = strtr($string,$arrDecode);
 	return $rtnstring; 
+}
+
+function fmtCurrency($n_money){
+	return '$' . number_format($n_money, 2);
 }
 
 // Custom PDO Exception reporting	

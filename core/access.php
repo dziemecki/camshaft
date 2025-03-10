@@ -138,6 +138,9 @@ if($subfeature == "submit"){
 	}else{
 		$new_page = "http://"._DOMAIN;
 	}
+
+	
+	
 	//Redirect browser
 	header("Location: $new_page"); 
 	exit();
@@ -273,30 +276,30 @@ if($subfeature == "reset"){
 }
 
 if(!$subfeature){
-// login form
-$login_form = "<DIV class='body_form'>";
-$login_form .= "<FORM action='/access/submit' method='post'>";
-$login_form .= "<DIV class='centerblock'>User ID:</DIV>";
-$login_form .= "<input class='centerblock'  type='text' name='uname'>";
-$login_form .= "<DIV class='centerblock'>Password:</DIV>";
-$login_form .= "<input class='centerblock' type='password' name='pwd'>";
-$login_form .= "<p><input class='submit' type='submit' value='Submit'></p>";
-$login_form .= "<DIV class='centertext'>[<a href='/access/forgot'>Forgot your password?</a>]</DIV>";
-$login_form .= "</FORM>";	
-$login_form .= "</DIV>";
+	// login form
+	$login_form = "<DIV class='body_form'>";
+	$login_form .= "<FORM action='/access/submit' method='post'>";
+	$login_form .= "<DIV class='centerblock'>User ID:</DIV>";
+	$login_form .= "<input class='centerblock'  type='text' name='uname'>";
+	$login_form .= "<DIV class='centerblock'>Password:</DIV>";
+	$login_form .= "<input class='centerblock' type='password' name='pwd'>";
+	$login_form .= "<p><input class='submit' type='submit' value='Submit'></p>";
+	$login_form .= "<DIV class='centertext'>[<a href='/access/forgot'>Forgot your password?</a>]</DIV>";
+	$login_form .= "</FORM>";	
+	$login_form .= "</DIV>";
 
-$content = $login_form;
-$access_includes[] = "<link rel='stylesheet' type='text/css' href='/url/core-includes/access.css'>"; 
-$rend_array['page_name'] = "Please login";
-$rend_array['body_title'] = "Please login";
+	$content = $login_form;
+	$access_includes[] = "<link rel='stylesheet' type='text/css' href='/url/core-includes/access.css'>"; 
+	$rend_array['page_name'] = "Please login";
+	$rend_array['body_title'] = "Please login";
 }
 
 if($subfeature && !in_array($subfeature,$access_subs)){
-	setMessage("Invalid credentials");	
+	setMessage("Invalid credentials");
     $target_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']
         === 'on' ? "https" : "http") . "://" .
         $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-	setPersistent('target_url', $target_url);		
+	setPersistent('target_url', $target_url);	
 	if(isset($_COOKIE["token_cookie"])){
 	  $rend_array['menu'] = getMenu();
 	}

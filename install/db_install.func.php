@@ -61,6 +61,7 @@ try {
 		   "create_date INT NOT NULL, ".
 		   "change_date INT, ".
 		   "change_uid INT, ".
+		   "intid VARCHAR(300), ".		   
 		   "reset_key VARCHAR(6), ".
 		   "PRIMARY KEY ( uid )); ";
     // use exec() because no results are returned
@@ -110,7 +111,8 @@ try {
 		   "rid INT NOT NULL AUTO_INCREMENT, ".
 		   "rname VARCHAR(20) NOT NULL, ".
 		   "rdesc VARCHAR(75) NOT NULL, ".
-		   "PRIMARY KEY ( rid )); ";
+		   "PRIMARY KEY ( rid ), ".
+		   "UNIQUE ( rname ))";
     // use exec() because no results are returned
     $conn->exec($s_sql);
     if($newTable){echo "<br>Table 'roles' created successfully</br>";}else{echo "<br>Table 'roles' not changed</br>";}
@@ -259,6 +261,35 @@ if($boMenu && $newTable){
 	//Execute the query
 	$o_database->execute();
 }
+
+if(!table_exist("wiki", $conx)){
+	$newTable = true;		
+}else{
+	$newTable = false;
+}
+try {
+    $conn = new PDO("$dbadapter:host=$servername;dbname=$dbname", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$s_sql = "CREATE TABLE IF NOT EXISTS wiki( ".
+		   "wid int(11) NOT NULL AUTO_INCREMENT, ".
+		   "module varchar(20) NOT NULL, ".
+		   "ordinal int(11) NOT NULL, ".
+		   "title tinytext, ".
+		   "content text, ".
+		   "PRIMARY KEY (wid), ".
+		   "UNIQUE KEY wid_UNIQUE (wid)); ";
+    // use exec() because no results are returned
+    $conn->exec($s_sql);
+    if($newTable){echo "<br>Table 'wiki' created successfully</br>";}else{echo "<br>Table 'wiki' not changed</br>";}
+    }
+catch(PDOException $e)
+    {
+    echo $s_sql . "<br>Error for wiki table:" . $e->getMessage();
+    }
+	
+$conn = null;
+$conx = null;	
 
 echo "Database creation complete.";
 

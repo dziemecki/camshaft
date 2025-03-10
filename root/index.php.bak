@@ -32,7 +32,6 @@ if($feature == "link"){
 		session_unset();
 	}	 
 }
-
 if(file_exists("../core/$feature.php")){
 	$repo = "core";
 } 

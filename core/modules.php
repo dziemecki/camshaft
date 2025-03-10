@@ -113,13 +113,13 @@ if(!$subfeature){
 	foreach ($dirs as $dir){
 		$module = substr($dir,10);
 		$info_file = $dir . "/" . $module . ".info"; // json module metadata
-		if(file_exists($info_file)){						
+		if(file_exists($info_file)){
 			$strInfo = file_get_contents($info_file); 
 			$arrInfo = json_decode($strInfo, true);
-			$strName = $arrInfo['name'];
+			if(isset($arrInfo['name'])){$strName = $arrInfo['name'];}
 			$arrModule = lookUpModule($module);
 			$strActive = "Inactive";
-			if($arrModule['active']){$strActive = "Active";}
+			if($arrModule && $arrModule['active']){$strActive = "Active";}
 			//// same thing for a module config file ?
 			$modules_content .= "<tr style='text-align:left;'><td><a href='manage/$module'>".$strName."</a></td><td>$strActive</td></tr>\r\n";	
 		}		
@@ -134,12 +134,12 @@ if($subfeature === "manage"){
 	$module = get("p3");
 	$arrModule = lookUpModule($module);
 	$strSubmit = "Activate";
-	if($arrModule['active']){$strSubmit = "Deactivate";}	
+	if(isset($arrModule['active']) && $arrModule['active']){$strSubmit = "Deactivate";}	
 	$dir = '../custom/';
 	$info_file = $dir . $module  . "/" . $module . ".info"; // json module metadata
 	$strInfo = file_get_contents($info_file); 
 	$arrInfo = json_decode($strInfo, true);
-	$strName = $arrInfo['name'];
+	if(isset($arrInfo['name'])){$strName = $arrInfo['name'];}
 	$modules_content .= "<form action='/modules/edit/$module' id='frmEditModule'><table class='content' style='width:75%;'>";
 	foreach ($arrInfo as $key => $value){
 		$strVal = $value;
@@ -180,7 +180,7 @@ if($subfeature === "edit"){
 	$o_database = new db();
 	$strOperation = '';
 	$bolSuccess = false;
-	if(strlen($arrModule['active']) == 0){
+	if(is_null($arrModule) || !isset($arrModule['active'])){
 		$strOperation = "new";
 		$o_database->query('INSERT INTO features (fid, active, vars) VALUES (:fid, :active, :vars)');
 		//Bind the data
@@ -192,7 +192,7 @@ if($subfeature === "edit"){
 		$o_database->query('UPDATE features SET active = :active WHERE fid = :fid'); 
 		//Bind the data
 		$o_database->bind(':fid', $module);
-		if($arrModule['active']){
+		if($arrModule['active'] && $arrModule['active']){
 			$o_database->bind(':active', false);
 			$strOperation = "deactivate";			
 		}else{
